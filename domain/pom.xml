@@ -13,13 +13,36 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    	<jdk.version>1.8</jdk.version>
+		<spring.version>4.3.2.RELEASE</spring.version>
+		<jackson.library>2.7.5</jackson.library>
+		<jersey>1.18.3</jersey>
+	 </properties>
   <dependencies>
+  	
+  	
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
+  </dependencies> 
+  
+  <build>
+  	<pluginManagement>
+			<plugins>
+			  <plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-compiler-plugin</artifactId>
+			        <version>3.1</version>
+			        <configuration>
+	            		<source>1.7</source>
+	            		<target>1.7</target>
+        			</configuration>
+    			</plugin>
+			</plugins>
+		</pluginManagement>
+    <finalName>domain</finalName>
+  </build>
 </project>
