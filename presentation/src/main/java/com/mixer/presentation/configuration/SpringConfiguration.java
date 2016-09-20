@@ -25,8 +25,6 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.mixer.presentation")
 public class SpringConfiguration extends WebMvcConfigurerAdapter{
-
-	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/static/**").addResourceLocations(
@@ -34,7 +32,7 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/pages/**").addResourceLocations(
 				"WEB-INF/static/html/");
 	}
-	
+		
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
