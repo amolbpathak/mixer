@@ -32,7 +32,7 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/pages/**").addResourceLocations(
 				"WEB-INF/static/html/");
 	}
-		
+
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -52,6 +52,5 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 		viewResolver.setViewClass(JstlView.class);
 		return viewResolver;
 	}
-	
 	 
 }
