@@ -12,7 +12,15 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.mixer.presentation")
 public class SpringConfiguration {
-
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/static/**").addResourceLocations(
+				"WEB-INF/static/");
+		registry.addResourceHandler("/pages/**").addResourceLocations(
+				"WEB-INF/static/html/");
+	}
+	
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -20,6 +28,16 @@ public class SpringConfiguration {
 		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
 
+		return viewResolver;
+	}
+	
+	@Bean
+	public UrlBasedViewResolver staticViewResolver() {
+		UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
+		viewResolver.setOrder(2);
+		viewResolver.setPrefix("/pages/");
+		viewResolver.setSuffix(".html");
+		viewResolver.setViewClass(JstlView.class);
 		return viewResolver;
 	}
 	 
