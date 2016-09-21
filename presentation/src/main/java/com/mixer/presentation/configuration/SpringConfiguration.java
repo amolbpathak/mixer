@@ -25,13 +25,13 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.mixer.presentation")
 public class SpringConfiguration extends WebMvcConfigurerAdapter{
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/static/**").addResourceLocations(
-				"WEB-INF/static/");
-		registry.addResourceHandler("/pages/**").addResourceLocations(
-				"WEB-INF/static/html/");
-	}
+//	@Override
+//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//		registry.addResourceHandler("/static/**").addResourceLocations(
+//				"WEB-INF/static/");
+//		registry.addResourceHandler("/static/**").addResourceLocations(
+//				"WEB-INF/static/html/");
+//	}
 
 	@Bean
 	public ViewResolver viewResolver() {
@@ -39,11 +39,10 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 		viewResolver.setViewClass(JstlView.class);
 		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
-
 		return viewResolver;
 	}
 	
-	@Bean
+	/*@Bean
 	public UrlBasedViewResolver staticViewResolver() {
 		UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
 		viewResolver.setOrder(2);
@@ -51,6 +50,6 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 		viewResolver.setSuffix(".html");
 		viewResolver.setViewClass(JstlView.class);
 		return viewResolver;
-	}
+	}*/
 	 
 }
