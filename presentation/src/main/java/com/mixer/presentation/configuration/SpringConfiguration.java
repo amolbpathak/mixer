@@ -37,6 +37,7 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
+		viewResolver.setOrder(1);
 		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
 
@@ -47,7 +48,7 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter{
 	public UrlBasedViewResolver staticViewResolver() {
 		UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
 		viewResolver.setOrder(2);
-		viewResolver.setPrefix("/WEB-INF/static/");
+		viewResolver.setPrefix("/pages/");
 		viewResolver.setSuffix(".html");
 		viewResolver.setViewClass(JstlView.class);
 		return viewResolver;
